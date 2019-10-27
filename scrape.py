@@ -18,8 +18,8 @@ with open('dataset.csv','a',newline='') as file:
         max_labels = random.randint(1,10) 
         random_tags = [tags[random.randint(1,10)] for i in range(max_labels)]
         set_of_labels = set()
-        for tag in random_tags:
-            set_of_labels.add(tag)
+        # for tag in random_tags:
+        #     set_of_labels.add(tag)
         parameters = [x for x in random_tags]
         parameters = ''.join(parameters)
         final_url = base_url1 + parameters + base_url2
@@ -35,7 +35,7 @@ with open('dataset.csv','a',newline='') as file:
         # the same position in the row array else , add 0 to the position . Next , add the row to the csv file and try or many iterations again and again. 
             row[0] = ques
             for tag in tags:
-                if tag in set_of_labels:
+                if tag in set(random_tags):
                     row[tags.index(tag)+1] = '1'
                     #print(tag)
             wr.writerow(row)
